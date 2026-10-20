@@ -130,14 +130,14 @@
                                             <?= htmlspecialchars(date('M j, Y', strtotime($student['created_at'])), ENT_QUOTES, 'UTF-8') ?>
                                         </td>
                                         <td>
-                                            <form action="/mvc-fast-track/students/delete" method="POST" 
-                                                  onsubmit="return confirm('Are you sure you want to delete this student?')">
-                                                <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8') ?>"> 
-                                                <input type="hidden" name="id" value="<?= (int) $student['id'] ?>">
-                                                
-                                                <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
-                                                <a href="/mvc-fast-track/students/edit?id=<?= (int) $student['id'] ?>" class="btn btn-outline-primary">Edit</a>
-                                            </form>
+                                            <form action="/mvc-fast-track/students/delete" method="POST"
+                                            onsubmit="return confirm('Are you sure you want to delete this student?')">
+                                            <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($token, ENT_QUOTES, 'UTF-8') ?>">
+                                            <input type="hidden" name="id" value="<?= (int) $student['id'] ?>">
+                                            <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+                                            <a href="/mvc-fast-track/students/edit?id=<?= (int) $student['id'] ?>"
+                                                class="btn btn-outline-primary">Edit</a>
+                                        </form>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
